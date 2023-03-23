@@ -1537,15 +1537,15 @@
     tslib "^2.3.1"
     url-loader "^4.1.1"
 
-"@fontsource/roboto@4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.2.tgz#98dd67e579984e255fac4315b496520d890ae989"
-  integrity sha512-KkMqloXIM64EvaVPOqC5Mkms0qdOWvx4nRvQBIMCoG0GGsDa8tFfNwhyowHeR9k09P0LuT5u09d29Y21JhaA6Q==
+"@fontsource/roboto@4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.8.tgz#56347764786079838faf43f0eeda22dd7328437f"
+  integrity sha512-CnD7zLItIzt86q4Sj3kZUiLcBk1dSk81qcqgMGaZe7SQ1P8hFNxhMl5AZthK1zrDM5m74VVhaOpuMGIL4gagaA==
 
-"@fontsource/tauri@4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/tauri/-/tauri-4.5.2.tgz#83ac2aac2adc982a8fe5bd205ddb67253a41724d"
-  integrity sha512-lsyeQRvOEns5VzI+nFwGXH/djtn3Wlca2Bh5uJ7lqOTi94pU6tlW3lkmsOCnkOLMsuNbxYLLTFDG/BgXyi5bkg==
+"@fontsource/tauri@4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/tauri/-/tauri-4.5.10.tgz#4aa9cec4c63e79dc6ef230fda5fcea1f0b3d8fc2"
+  integrity sha512-LNYLrxDV2bpaDqF88FgXhxvghZ+XNJpc4rz7gKG5AJFB2YPHgZtD+lba4etUdeaiF8YcXqOGosOAoxvTlj529w==
 
 "@hapi/hoek@^9.0.0":
   version "9.2.1"
