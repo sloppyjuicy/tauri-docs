@@ -4,9 +4,8 @@ title: CLI
 ---
 
 import Command from '@theme/Command'
-import Alert from '@theme/Alert'
-
-The `cli.js` command line interface is composed in TypeScript and published as a JavaScript NPM. It offers the `deps` and the `icon` commands, and propagates other commands to `cli.rs`.
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 ## `info`
 
@@ -16,15 +15,21 @@ The `cli.js` command line interface is composed in TypeScript and published as a
 
 It shows a concise list of information about the environment, Rust, Node.js and their versions as well as some relevant configurations.
 
-<Alert title="Note" icon="info-alt">
+:::info
 This command is pretty helpful when you need to have a quick overview of your application. When requesting some help, it can be useful that you share this report with us.
-</Alert>
+:::
 
 ## `init`
 
 <Command name="init" />
 
 {init}
+
+## `plugin init`
+
+<Command name="plugin init" />
+
+{plugin init}
 
 ## `dev`
 
@@ -36,18 +41,11 @@ This command will open the WebView in development mode. It makes use of the `bui
 
 If you have entered a command to the `build.beforeDevCommand` property, this one will be executed before the `dev` command.
 
-<a href="/docs/api/config#build">See more about the configuration.</a><br/><br/>
+**[See more about the configuration.](./config.md#build)**
 
-<Alert title="Troubleshooting" type="warning" icon="alert">
-
+:::caution Troubleshooting
 If you're not using `build.beforeDevCommand`, make sure your `build.devPath` is correct and, if using a development server, that it's started before using this command.
-</Alert>
-
-## `deps`
-
-<Command name="deps" />
-
-{deps}
+:::
 
 ## `build`
 
@@ -59,28 +57,179 @@ This command will bundle your application, either in production mode or debug mo
 
 If you have entered a command to the `build.beforeBuildCommand` property, this one will be executed before the `build` command.
 
-<a href="/docs/api/config#build">See more about the configuration.</a>
+**[See more about the configuration.](./config.md#build)**
 
 ## `icon`
 
 <Command name="icon" />
 
+{icon}
+
+For more information, check out the complete [Tauri Icon Guide](../guides/features/icons.md).
+
+## `completions`
+
+<Command name="completions" />
+
+{completions}
+
+The Tauri CLI can generate shell completions for Bash, Zsh, PowerShell and Fish.
+
+Here are some instructions to configure Bash, Zsh and PowerShell. If you face an issue, please follow your shell's instructions instead. Note that it is recommended to check the generated completions script before executing it for security reasons.
+
+### Bash
+
+Get the Bash completions and move to a known folder:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm">
+
+```shell
+npm run tauri completions -- --shell bash > tauri.sh
+mv tauri.sh /usr/local/etc/bash_completion.d/tauri.bash
 ```
-  Description
-    Create all the icons you need for your Tauri app.
 
-  Usage
-    $ tauri icon /path/to/icon.png
+  </TabItem>
+  <TabItem value="Yarn">
 
-  Options
-    --help, -h           Displays this message
-    --log, -l            Logging [boolean]
-    --target, -t         Target folder (default: 'src-tauri/icons')
-    --compression, -c    Compression type [optipng|zopfli]
-    --ci                 Runs the script in CI mode     
+```shell
+yarn tauri completions --shell bash > tauri.sh
+mv tauri.sh /usr/local/etc/bash_completion.d/tauri.bash
 ```
 
-This command will generate a set of icons, based on the source icon you've entered. Note that the source icon must be 1240x1240 with transparency.
+  </TabItem>
+  <TabItem value="pnpm">
+
+```shell
+pnpm tauri completions --shell bash > tauri.sh
+mv tauri.sh /usr/local/etc/bash_completion.d/tauri.bash
+```
+
+  </TabItem>
+  <TabItem value="Bun">
+
+```shell
+bunx tauri completions --shell bash > tauri.sh
+mv tauri.sh /usr/local/etc/bash_completion.d/tauri.bash
+```
+
+  </TabItem>
+  <TabItem value="Cargo">
+
+```shell
+cargo tauri completions --shell bash > tauri.sh
+mv tauri.sh /usr/local/etc/bash_completion.d/tauri.bash
+```
+
+  </TabItem>
+</Tabs>
+
+Load the completions script by adding the following to `.bashrc`:
+
+```shell
+source /usr/local/etc/bash_completion.d/tauri.bash
+```
+
+### Zsh
+
+Get the Zsh completions and move to a known folder:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm">
+
+```shell
+npm run tauri completions -- --shell zsh > completions.zsh
+mv completions.zsh $HOME/.completions/_tauri
+```
+
+  </TabItem>
+  <TabItem value="Yarn">
+
+```shell
+yarn tauri completions --shell zsh > completions.zsh
+mv completions.zsh $HOME/.completions/_tauri
+```
+
+  </TabItem>
+  <TabItem value="pnpm">
+
+```shell
+pnpm tauri completions --shell zsh > completions.zsh
+mv completions.zsh $HOME/.completions/_tauri
+```
+
+  </TabItem>
+  <TabItem value="Bun">
+
+```shell
+bunx tauri completions -- --shell zsh > completions.zsh
+mv completions.zsh $HOME/.completions/_tauri
+```
+
+  </TabItem>
+  <TabItem value="Cargo">
+
+```shell
+cargo tauri completions --shell zsh > completions.zsh
+mv completions.zsh $HOME/.completions/_tauri
+```
+
+  </TabItem>
+</Tabs>
+
+Load the completions folder using fpath adding the following to `.zshrc`:
+
+```shell
+fpath=(~/.completions $fpath)
+autoload -U compinit
+```
+
+### PowerShell
+
+Get the PowerShell completions and add it to the `$profile` file to execute it on all sessions:
+
+<Tabs groupId="package-manager">
+  <TabItem value="npm">
+
+```powershell
+npm run tauri completions -- --shell powershell > ((Split-Path -Path $profile)+"\_tauri.ps1")
+Add-Content -Path $profile -Value '& "$PSScriptRoot\_tauri.ps1"'
+```
+
+  </TabItem>
+  <TabItem value="Yarn">
+
+```powershell
+yarn tauri completions --shell powershell > ((Split-Path -Path $profile)+"\_tauri.ps1")
+Add-Content -Path $profile -Value '& "$PSScriptRoot\_tauri.ps1"'
+```
+
+  </TabItem>
+  <TabItem value="pnpm">
+
+```powershell
+pnpm tauri completions --shell powershell > ((Split-Path -Path $profile)+"\_tauri.ps1")
+Add-Content -Path $profile -Value '& "$PSScriptRoot\_tauri.ps1"'
+```
+
+  </TabItem>
+  <TabItem value="Bun">
+
+```powershell
+bunx tauri completions -- --shell powershell > ((Split-Path -Path $profile)+"\_tauri.ps1")
+Add-Content -Path $profile -Value '& "$PSScriptRoot\_tauri.ps1"'
+```
+
+  </TabItem>
+  <TabItem value="Cargo">
+
+```powershell
+cargo tauri completions --shell powershell > ((Split-Path -Path $profile)+"\_tauri.ps1")
+Add-Content -Path $profile -Value '& "$PSScriptRoot\_tauri.ps1"'
+```
+
+  </TabItem>
+</Tabs>
 
 ## `version`
 
@@ -95,4 +244,4 @@ This command will show the current version of Tauri.
 
 ## CLI usage
 
-See more about the usage through this [complete guide](/docs/development/integration).
+See more about the usage through this [complete guide](../guides/development/development-cycle.md).

@@ -1,83 +1,52 @@
 # Tauri Docs
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/) with [MeiliSearch](https://github.com/meilisearch/) for the docs indexation and is deployed by Netlify.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0bc4e65a-3a3a-4074-9401-1f094ecd0508/deploy-status)](https://app.netlify.com/sites/tauri/deploys)
 
-[![Deploys By Netlify](https://www.netlify.com/img/global/badges/netlify-light.svg)](https://www.netlify.com)
+> **Warning**
+> We're currently shifting focus to Tauri 2.0 documentation.  
+> [Check out the `next` branch](https://github.com/tauri-apps/tauri-docs/tree/next) if you're interested in getting involved and contributing.
 
-If you seek to change something from **our guides**, please refer to [the docs folder from the Core repository](https://github.com/tauri-apps/tauri/tree/dev/docs). \
+This website is built using [Docusaurus 2], uses [MeiliSearch] for search indexing, is built using GitHub CI runners, and is deployed by [Netlify].
+
+If you seek to change something from **our guides**, please refer to [the docs folder].
 When browsing the website, you will find edit links at the bottom of these docs.
 
-The **API docs** are generated from our [Rust](https://github.com/tauri-apps/tauri/tree/dev/core/tauri) and [TypeScript](https://github.com/tauri-apps/tauri/tree/dev/tooling/api) source code.
-
-In the end, as the guides and the API live in the Core repository, tauri-docs just holds the components and various pages that don't need to follow the Core repository version; this way, we don't pollute the Core repository with commits, PRs or issues related to the website only.
-
-
-## Installation
-
-```
-$ yarn
-```
-
-## Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
-
-To develop in another language, use this command (setting your desired language):
-```
-$ yarn start --locale fr
-```
-
-## Build
-
-```
-$ yarn build
-```
-
-This command generates static content and can be served using any static contents hosting service.
-
-To build for only a specific language use:
-
-```
-yarn build --locale fr
-```
-
-## Deployment
-
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The **API docs** are generated from our [Rust] and [TypeScript] source code.
 
 ## Contributing
 
-### Writing/fixing docs
+See [Contributing Guide].
 
-Feel free to open an issue/a PR if you find something weird in the docs.
+## Partners
 
-Your PR once submitted to us, will automatically deploy to a temporary Netlify instance for us or you to review through GitHub's CI/CD checks: you will be able to click on a preview link once the build is ready.
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">
+        <a href="https://crabnebula.dev" target="_blank">
+          <img src=".github/sponsors/crabnebula.svg" alt="CrabNebula" width="283">
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-### Internationalization (i18n)
+For the complete list of sponsors please visit our [website](https://tauri.app#sponsors) and [Open Collective](https://opencollective.com/tauri).
 
-We're working with Crowdin to manage translations, if you feel like you want to lend a hand for translations, take a look at the documentation project: https://tauri.crowdin.com/documentation
+## Trademark Usage
 
-To add a language to the site, add it to `docusaurus.config.js`'s `siteconfig.i18n.locales` object.
-
-The following items should be translated before enabling a language:
-
-- strings in i18n/[language] json files
-- docs/about/intro.md and docs/about/security.md;
-- all files in docs/get-started;
-- all files in docs/development;
-
-
+If you are interested in using the Tauri trademarks, please read this page: https://tauri.app/about/trademark
 
 ## License
 
 MIT License
 
-Copyright (c) 2020-2021 Tauri Programme within The Commons Conservancy
+Copyright (c) 2020-2023 Tauri Programme within The Commons Conservancy
+
+[docusaurus 2]: https://v2.docusaurus.io/
+[meilisearch]: https://github.com/meilisearch/
+[netlify]: https://www.netlify.com
+[the docs folder]: ./docs
+[typescript]: https://github.com/tauri-apps/tauri/tree/dev/tooling/api
+[rust]: https://github.com/tauri-apps/tauri/tree/dev/core/tauri
+[contributing guide]: ./.github/CONTRIBUTING.md

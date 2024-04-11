@@ -3,51 +3,39 @@ module.exports = (context, options) => ({
   injectHtmlTags() {
     return {
       headTags: [
-        // {
-        //   tagName: 'script',
-        //   attributes: {
-        //     src: context.baseUrl + 'js/ethicalads.min.js',
-        //   },
-        // },
-        {
-          tagName: 'script',
-          attributes: {
-            src: context.baseUrl + 'js/lottie-player.js',
-          },
-        },
         {
           tagName: 'meta',
           attributes: {
             property: 'og:type',
-            content: 'website'
+            content: 'website',
           },
         },
         {
           tagName: 'meta',
           attributes: {
             property: 'og:url',
-            content: context.baseUrl
+            content: context.siteConfig.url,
           },
         },
         {
           tagName: 'meta',
           attributes: {
             property: 'og:image',
-            content: context.baseUrl + '/img/social.jpg'
+            content: context.siteConfig.url + '/img/social.png',
           },
         },
         {
           tagName: 'meta',
           attributes: {
             property: 'twitter:card',
-            content: 'summary_large_image'
+            content: 'summary_large_image',
           },
         },
         {
           tagName: 'meta',
           attributes: {
             property: 'twitter:image',
-            content: context.baseUrl + '/img/social.jpg'
+            content: context.siteConfig.url + '/img/social.png',
           },
         },
       ],

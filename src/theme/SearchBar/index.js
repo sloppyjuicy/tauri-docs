@@ -1,39 +1,23 @@
 import React, { useEffect } from 'react'
-import classNames from 'classnames'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import 'docs-searchbar.js/dist/cdn/docs-searchbar.min.css'
-import styles from './searchbar.module.css'
-import Icon from '@theme/Icon'
+import './style.css'
+import 'meilisearch-docsearch/css'
 
-const SearchBar = ({className}) => {
-  const context = useDocusaurusContext()
-  const { siteConfig = {} } = context
-
+export default function Component() {
   useEffect(() => {
-    const docsSearchBar = require('docs-searchbar.js').default
-    docsSearchBar({
-      hostUrl: 'https://search.tauri.studio',
-      apiKey:
-        'ea0105f56bb5a2111ed28c7a0c637fc0bed07273f571dc7cb1f73900e44f8e7f',
-      indexUid: siteConfig.themeConfig.version.trim().replace(/\W/g, '_'),
-      inputSelector: '#search-bar-input',
-      debug: process.env.NODE_ENV === 'development',
-      transformData(hits) {
-        return hits.map((hit) => ({ ...hit, url: '/docs/' + hit.url }))
-      },
-    })
-  }, [])
-  return (
-    <div className={classNames(className, 'SearchBar', 'meilisearch-search-wrapper', styles.searchWrapper)}>
-      <Icon title="search" className={classNames(styles.searchIcon)}/>
-      <input
-        placeholder="Search..."
-        type="text"
-        className={classNames(styles.search)}
-        id="search-bar-input"
-      />
-    </div>
-  )
-}
+    const lang = document.querySelector('html').lang || 'en'
 
-export default SearchBar
+    const docsearch = require('meilisearch-docsearch').default
+    const destroy = docsearch({
+      host: 'https://ms-4ebb96f179f0-1619.fra.meilisearch.io',
+      apiKey:
+        '3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12',
+      indexUid: 'docs-v1',
+      container: '#docsearch',
+      searchParams: { filter: [`lang = ${lang}`] },
+    })
+
+    return () => destroy()
+  }, [])
+
+  return <div id="docsearch" />
+}

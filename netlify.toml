@@ -1,51 +1,124 @@
-[build]
-  publish = "build"
-  command = "yarn build"
+[[redirects]]
+from = "/en/*"
+to = "/:splat"
 
 [[redirects]]
-  from = "/en/docs/usage/intro.md"
-  to = "/docs/development/intro.md"
+from = "/docs/api/rust/*"
+to = "https://docs.rs/tauri/1/tauri/"
 
 [[redirects]]
-  from = "/en/docs/usage/ci-cd/cross-platform.md"
-  to = "/docs/development/cross-platform.md"
+from = "/partners"
+to = "/#sponsors"
 
 [[redirects]]
-  from = "/en/docs/usage/ci-cd/workflow.md"
-  to = "/docs/development/ci-cd.md"
+from = "/docs/guides/*"
+to = "/v1/guides/features/:splat"
 
 [[redirects]]
-  from = "/en/docs/usage/guides/contributor-guide.md"
-  to = "/docs/guides/contributor-guide.md"
+from = "/docs/*"
+to = "/v1/:splat"
 
 [[redirects]]
-  from = "/en/docs/getting-started/*"
-  to = "/docs/get-started/:splat"
+from = "/api/*"
+to = "/v1/api/:splat"
 
 [[redirects]]
-  from = "/en/docs/usage/guides/*"
-  to = "/docs/guides/:splat"
+from = "/guides/*"
+to = "/v1/guides/:splat"
 
 [[redirects]]
-  from = "/en/docs/usage/development/*"
-  to = "/docs/guides/:splat"
+from = "/v1/guides/getting-started/setup*"
+to = "/v1/guides/getting-started/prerequisites/"
 
 [[redirects]]
-  from = "/en/docs/usage/guides/patterns/*"
-  to = "/docs/guides/patterns/:splat"
+from = "/v1/guides/examples/*"
+to = "/v1/guides/features/:splat"
 
 [[redirects]]
-  from = "/en/docs/usage/guides/visual/*"
-  to = "/docs/guides/:splat"
+from = "/v1/about/*"
+to = "/about/:splat"
 
 [[redirects]]
-  from = "/en/docs/api/rust/*"
-  to = "https://docs.rs/tauri/1.0.0-beta.8/tauri/"
+from = "/v1/guides/architecture/brownfield"
+to = "/v1/guides/architecture/inter-process-communication/brownfield"
 
 [[redirects]]
-  from = "/docs/api/rust/*"
-  to = "https://docs.rs/tauri/1.0.0-beta.8/tauri/"
+from = "/v1/guides/architecture/isolation"
+to = "/v1/guides/architecture/inter-process-communication/isolation"
 
 [[redirects]]
-  from = "/en/*"
-  to = "/:splat"
+from = "/v1/guides/getting-started/tauri-cli"
+to = "/v1/guides/getting-started/setup/html-css-js"
+
+[[redirects]]
+from = "/release-notes"
+to = "/releases"
+
+[[redirects]]
+from = "/v1/guides/architecture/*"
+to = "/v1/references/architecture/:splat"
+
+[[redirects]]
+from = "/v1/guides/development/security"
+to = "/v1/references/security"
+
+[[redirects]]
+from = "/about/security"
+to = "/v1/references/architecture/security"
+
+[[redirects]]
+from = "/about/benchmarks"
+to = "/v1/references/benchmarks"
+
+# Temporary fix for search results
+[[redirects]]
+from = "/references/*"
+to = "/v1/references/:splat"
+
+[[redirects]]
+from = "/v1/api/js/classes/window.webviewwindow/*"
+to = "/v1/api/js/window"
+
+[[redirects]]
+from = "/v1/api/js/modules/*"
+to = "/v1/api/js/:splat"
+
+[[redirects]]
+from = "/v1/api/js/classes/*"
+to = "/v1/api/js"
+
+[[redirects]]
+from = "/v1/api/js/enums/*"
+to = "/v1/api/js"
+
+[[redirects]]
+from = "/v1/api/js/interfaces/*"
+to = "/v1/api/js"
+
+[[redirects]]
+from = "/v1/guides/distribution/windows"
+to = "/v1/guides/building/windows"
+
+[[redirects]]
+from = "/v1/guides/distribution/windows"
+to = "/v1/guides/building/windows"
+
+[[redirects]]
+from = "/v1/guides/distribution/linux"
+to = "/v1/guides/building/linux"
+
+[[redirects]]
+from = "/v1/guides/building/debian"
+to = "/v1/guides/building/linux"
+
+[[redirects]]
+from = "/zh/*"
+to = "/zh-cn/:splat"
+
+[[redirects]]
+from = "/2/*"
+to = "https://beta.tauri.app/2/:splat"
+
+[[redirects]]
+from = "/blog/*"
+to = "https://beta.tauri.app/blog/:splat"
